@@ -1,8 +1,7 @@
 package com.jobportal.jobportal_backend.model;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.GenericGenerator;
-
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -11,40 +10,47 @@ import java.util.UUID;
 public class Job {
 
     @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private UUID id;
 
+    @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(columnDefinition = "TEXT")
-    private String responsibilities;
-
-    @Column(columnDefinition = "TEXT")
-    private String qualifications;
-
+    @Column(name = "location")
     private String location;
 
-    private Integer salaryMin;
+    @Column(name = "responsibilities", columnDefinition = "TEXT")
+    private String responsibilities;
 
-    private Integer salaryMax;
+    @Column(name = "qualifications", columnDefinition = "TEXT")
+    private String qualifications;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "type")
     private JobType type;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "experience_level")
     private ExperienceLevel experienceLevel;
 
-    private LocalDateTime createdDate = LocalDateTime.now();
+    @Column(name = "salary_min")
+    private BigDecimal salaryMin;
+
+    @Column(name = "salary_max")
+    private BigDecimal salaryMax;
+
+    @Column(name = "created_date")
+    private LocalDateTime createdDate;
 
     // Constructors
-    public Job() {
-    }
+    public Job() {}
 
     // Getters and Setters
+
     public UUID getId() {
         return id;
     }
@@ -69,6 +75,14 @@ public class Job {
         this.description = description;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public String getResponsibilities() {
         return responsibilities;
     }
@@ -85,30 +99,6 @@ public class Job {
         this.qualifications = qualifications;
     }
 
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public Integer getSalaryMin() {
-        return salaryMin;
-    }
-
-    public void setSalaryMin(Integer salaryMin) {
-        this.salaryMin = salaryMin;
-    }
-
-    public Integer getSalaryMax() {
-        return salaryMax;
-    }
-
-    public void setSalaryMax(Integer salaryMax) {
-        this.salaryMax = salaryMax;
-    }
-
     public JobType getType() {
         return type;
     }
@@ -123,6 +113,22 @@ public class Job {
 
     public void setExperienceLevel(ExperienceLevel experienceLevel) {
         this.experienceLevel = experienceLevel;
+    }
+
+    public BigDecimal getSalaryMin() {
+        return salaryMin;
+    }
+
+    public void setSalaryMin(BigDecimal salaryMin) {
+        this.salaryMin = salaryMin;
+    }
+
+    public BigDecimal getSalaryMax() {
+        return salaryMax;
+    }
+
+    public void setSalaryMax(BigDecimal salaryMax) {
+        this.salaryMax = salaryMax;
     }
 
     public LocalDateTime getCreatedDate() {
