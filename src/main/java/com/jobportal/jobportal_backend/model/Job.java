@@ -17,6 +17,9 @@ public class Job {
     @Column(name = "title", nullable = false)
     private String title;
 
+    @Column(name = "company_name", columnDefinition = "TEXT")
+    private String companyName;
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
@@ -74,6 +77,15 @@ public class Job {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    public String getCompanyName() {
+        return companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
 
     public String getLocation() {
         return location;
