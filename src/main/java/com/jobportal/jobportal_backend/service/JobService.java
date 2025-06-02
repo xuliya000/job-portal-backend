@@ -1,10 +1,13 @@
 package com.jobportal.jobportal_backend.service;
 
-import com.jobportal.jobportal_backend.model.Job;
-import com.jobportal.jobportal_backend.repository.JobRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.jobportal.jobportal_backend.model.Job;
+import com.jobportal.jobportal_backend.repository.JobRepository;
 
 @Service
 public class JobService {
@@ -13,6 +16,10 @@ public class JobService {
 
     public JobService(JobRepository jobRepository) {
         this.jobRepository = jobRepository;
+    }
+
+    public Optional<Job> findById(UUID id) {
+        return jobRepository.findById(id);
     }
 
     public List<Job> getAllJobs() {
