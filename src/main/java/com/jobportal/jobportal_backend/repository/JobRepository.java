@@ -8,6 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface JobRepository extends JpaRepository<Job, UUID> {
-    // 可以添加自定义查询，如：
-    // List<Job> findByLocation(String location);
+    // Custom queries can be added, such as: List<Job> findByLocation(String location);
 }
