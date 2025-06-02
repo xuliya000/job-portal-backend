@@ -1,5 +1,6 @@
 package com.jobportal.jobportal_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -15,6 +16,7 @@ public class ApplicationExperience {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "application_id")
     private Application application;

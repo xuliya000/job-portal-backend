@@ -1,5 +1,6 @@
 package com.jobportal.jobportal_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.util.UUID;
 
@@ -11,6 +12,7 @@ public class ApplicationSkill {
 
     private String skillName;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "application_id")
     private Application application;

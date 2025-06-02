@@ -2,8 +2,11 @@ package com.jobportal.jobportal_backend.controller;
 
 import com.jobportal.jobportal_backend.model.Application;
 import com.jobportal.jobportal_backend.service.ApplicationService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/v1/applications")
@@ -17,7 +20,15 @@ public class ApplicationController {
     }
 
     @PostMapping
-    public ResponseEntity<Application> apply(@RequestBody Application application) {
-        return ResponseEntity.ok(applicationService.save(application));
+    public ResponseEntity<Application> create(@RequestBody Application application) {
+        Application created = applicationService.create(application);
+        return new ResponseEntity<>(created, HttpStatus.CREATED);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Application>> getAllApplications() {
+        List<Application> applications = applicationService.findAll();
+        System.out.println("✅ [GET] /v1/applications was hit");
+        return ResponseEntity.ok(applications);
     }
 }

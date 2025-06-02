@@ -1,5 +1,6 @@
 package com.jobportal.jobportal_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -21,9 +22,11 @@ public class Application {
     private String phone;
     private LocalDateTime submittedAt = LocalDateTime.now();
 
+    @JsonIgnoreProperties("application")
     @OneToMany(mappedBy = "application", cascade = CascadeType.ALL)
     private List<ApplicationSkill> skills;
 
+    @JsonIgnoreProperties("application")
     @OneToMany(mappedBy = "application", cascade = CascadeType.ALL)
     private List<ApplicationExperience> experiences;
 

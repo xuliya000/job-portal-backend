@@ -4,6 +4,8 @@ import com.jobportal.jobportal_backend.model.Application;
 import com.jobportal.jobportal_backend.repository.ApplicationRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ApplicationService {
 
@@ -13,7 +15,12 @@ public class ApplicationService {
         this.applicationRepository = applicationRepository;
     }
 
-    public Application save(Application application) {
+    public Application create(Application application) {
         return applicationRepository.save(application);
+    }
+
+
+    public List<Application> findAll() {
+        return applicationRepository.findAll();
     }
 }
