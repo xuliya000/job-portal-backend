@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
+import java.util.List;
 
 @Entity
 @Table(name = "jobs")
@@ -48,6 +49,13 @@ public class Job {
 
     @Column(name = "created_date")
     private LocalDateTime createdDate;
+
+    @OneToMany(mappedBy = "job", fetch = FetchType.LAZY)
+    private List<Application> applications;
+
+    public int getApplicationCount() {
+        return applications != null ? applications.size() : 0;
+    }
 
     // Constructors
     public Job() {}
