@@ -11,10 +11,12 @@ import com.jobportal.jobportal_backend.model.Job;
 
 
 public interface JobRepository extends JpaRepository<Job, UUID> {
+    List<Job> findByCompanyName(String companyName); 
 
     @EntityGraph(attributePaths = {"applications"})
     List<Job> findAll();
 
     @EntityGraph(attributePaths = {"applications"})
     Optional<Job> findById(UUID id);
+
 }

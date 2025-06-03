@@ -1,10 +1,20 @@
 package com.jobportal.jobportal_backend.model;
 
-import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.UUID;
 import java.util.List;
+import java.util.UUID;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "jobs")
@@ -123,6 +133,7 @@ public class Job {
         return type;
     }
 
+    
     public void setType(JobType type) {
         this.type = type;
     }

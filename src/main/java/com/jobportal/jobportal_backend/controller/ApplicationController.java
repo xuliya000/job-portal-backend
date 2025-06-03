@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -52,12 +53,17 @@ public class ApplicationController {
         }
     }
 
-
-
     @GetMapping
-    public ResponseEntity<List<Application>> getAllApplications() {
-        List<Application> applications = applicationService.findAll();
-        System.out.println("✅ [GET] /v1/applications was hit");
+    public ResponseEntity<List<Application>> getApplicationsByEmail(@RequestParam String email) {
+        List<Application> applications = applicationService.findByCandidateEmail(email);
         return ResponseEntity.ok(applications);
     }
+
+    @GetMapping("/by-company")
+    public ResponseEntity<List<Application>> getApplicationsByCompany(@RequestParam String companyName) {
+        List<Application> applications = applicationService.findByCompanyName(companyName);
+        return ResponseEntity.ok(applications);
+    }
+
+
 }

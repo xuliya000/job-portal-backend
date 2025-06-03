@@ -31,6 +31,15 @@ public class ApplicationService {
     }
     
 
+    public List<Application> findByCandidateEmail(String email) {
+        return applicationRepository.findByEmail(email);
+    }
+
+    public List<Application> findByCompanyName(String companyName) {
+        return applicationRepository.findByJobCompanyName(companyName);
+    }
+    
+
 
 
     public List<Application> findAll() {

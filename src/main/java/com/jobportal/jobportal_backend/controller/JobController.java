@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jobportal.jobportal_backend.dto.JobDto;
 import com.jobportal.jobportal_backend.model.Job;
 import com.jobportal.jobportal_backend.service.JobService;
+
 
 @RestController
 @RequestMapping("/v1/jobs")
@@ -46,5 +49,14 @@ public class JobController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/by-company")
+    public ResponseEntity<List<JobDto>> getJobsByCompany(@RequestParam String companyName) {
+        List<JobDto> jobs = jobService.findByCompanyName(companyName);
+        return ResponseEntity.ok(jobs);
+    }
+
+
+
 
 }
