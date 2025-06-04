@@ -17,7 +17,7 @@ job-portal-backend/
 │   │   │           ├── controller/        # REST controllers (Job, Authentication, Application)
 │   │   │           ├── dto/               # Data Transfer Objects
 │   │   │           ├── model/             # JPA entity classes
-│   │   │           ├── exception/         # exception treatment
+│   │   │           ├── exception/         # exception management
 │   │   │           ├── repository/        # Spring Data JPA repositories
 │   │   │           ├── service/           # Service layer
 │   │   │           └── JobPortalApplication.java
