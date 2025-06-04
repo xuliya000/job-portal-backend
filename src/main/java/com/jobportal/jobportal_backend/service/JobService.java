@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.jobportal.jobportal_backend.dto.JobDto;
 import com.jobportal.jobportal_backend.model.Job;
 import com.jobportal.jobportal_backend.repository.JobRepository;
-import com.jobportal.jobportal_backend.dto.JobDto;
 
 @Service
 public class JobService {
@@ -53,5 +53,4 @@ public class JobService {
         dto.setCompanyName(job.getCompanyName());
         return dto;
     }
-    // 更多功能后续添加
 }

@@ -28,7 +28,7 @@ public class User {
     private String email;
 
     @Column(name = "password", nullable = false)
-    private String password; // hashé en backend
+    private String password; 
 
     @Column(name = "phone", nullable = false)
     private String phone;
@@ -53,7 +53,7 @@ public class User {
 
     public User() {}
 
-    // Getters / Setters (à générer)
+    // Getters et Setters
 
     public UUID getId() { return id; }
     public void setId(UUID id) { this.id = id; }

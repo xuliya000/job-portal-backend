@@ -42,7 +42,7 @@ public class SecurityConfig {
             .httpBasic().disable()
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
-                    "/v1/jobs/**", // ça couvre déjà /by-company
+                    "/v1/jobs/**", 
                     "/v1/apply/**",
                     "/v1/applications/**",
                     "/api/auth/**"

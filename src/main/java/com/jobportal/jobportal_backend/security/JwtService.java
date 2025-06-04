@@ -1,15 +1,18 @@
 package com.jobportal.jobportal_backend.security;
 
-import io.jsonwebtoken.*;
-import io.jsonwebtoken.security.Keys;
-import org.springframework.stereotype.Service;
-
 import java.security.Key;
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
+
+import io.jsonwebtoken.JwtException;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+
 @Service
 public class JwtService {
-    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 24; // 24h
+    private static final long EXPIRATION_TIME = 1000 * 60 * 60 * 24;
     private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     public String generateToken(String email, String role) {

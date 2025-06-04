@@ -10,7 +10,7 @@ import com.jobportal.jobportal_backend.model.Application;
 public interface ApplicationRepository extends JpaRepository<Application, UUID> {
     boolean existsByEmailAndJob_Id(String email, UUID jobId);
 
-    List<Application> findByEmail(String email);  // ← méthode à ajouter
+    List<Application> findByEmail(String email);  
     
     List<Application> findByJobCompanyName(String companyName);
 

@@ -21,7 +21,7 @@ import com.jobportal.jobportal_backend.service.JobService;
 
 @RestController
 @RequestMapping("/v1/jobs")
-@CrossOrigin(origins = "http://localhost:4200") // 如果前端运行在4200端口
+@CrossOrigin(origins = "http://localhost:4200") 
 public class JobController {
 
     private final JobService jobService;

@@ -38,7 +38,7 @@ public class AuthController {
         this.jwtService = jwtService;
     }
 
-    // ✅ ENREGISTREMENT
+    // ENREGISTREMENT
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody User user) {
         if (userRepository.existsByEmail(user.getEmail())) {
@@ -50,7 +50,7 @@ public class AuthController {
         user.setPassword(hashedPassword);
 
         User createdUser = userRepository.save(user);
-        createdUser.setPassword(null); // Don't expose hashed password
+        createdUser.setPassword(null); 
         return ResponseEntity.ok(createdUser);
     }
 
@@ -68,11 +68,10 @@ public class AuthController {
             return ResponseEntity.status(401).body("Invalid credentials");
         }
 
-        // 🔐 Générer le token avec email + rôle
         String role = user.isRecruiter() ? "recruiter" : "candidate";
         String token = jwtService.generateToken(user.getEmail(), role);
 
-        user.setPassword(null); // Sécurité : ne jamais renvoyer le password
+        user.setPassword(null); 
         return ResponseEntity.ok(new AuthResponse(token, user));
     }
 }

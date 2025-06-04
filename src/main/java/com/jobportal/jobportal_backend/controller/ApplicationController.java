@@ -37,7 +37,7 @@ public class ApplicationController {
     ) {
         try {
             ObjectMapper mapper = new ObjectMapper();
-            mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule()); // 👉 ICI
+            mapper.registerModule(new com.fasterxml.jackson.datatype.jsr310.JavaTimeModule()); 
 
             Application application = mapper.readValue(applicationData, Application.class);
 

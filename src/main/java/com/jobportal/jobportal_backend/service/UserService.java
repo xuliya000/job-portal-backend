@@ -1,20 +1,20 @@
 package com.jobportal.jobportal_backend.service;
 
-import com.jobportal.jobportal_backend.model.User;
-import com.jobportal.jobportal_backend.repository.UserRepository;
+import java.util.Optional;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
+import com.jobportal.jobportal_backend.model.User;
+import com.jobportal.jobportal_backend.repository.UserRepository;
 
 @Service
 public class UserService {
 
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder; // à configurer dans SecurityConfig
+    private final PasswordEncoder passwordEncoder;
 
-    public UserService(UserRepository userRepository,
-                       PasswordEncoder passwordEncoder) {
+    public UserService(UserRepository userRepository,PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
