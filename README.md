@@ -1,10 +1,10 @@
-# 🛠 JobSter Backend
+#  JobSter Backend
 
 This is the backend codebase for **JobSter**, a full-featured job portal platform that enables recruiters to post jobs and candidates to apply with their profiles.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```bash
 job-portal-backend/
@@ -27,7 +27,7 @@ job-portal-backend/
 
 ---
 
-## ✅ Features
+##  Features
 
 - RESTful APIs for:
   - Job management
@@ -41,15 +41,15 @@ job-portal-backend/
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 🧰 Prerequisites
+### Prerequisites
 
 - Java 23
 - Maven
 - PostgreSQL
 
-### ▶️ Run Locally
+###  Run Locally
 
 ```bash
 git clone https://github.com/xuliya000/job-portal-backend
@@ -59,12 +59,11 @@ mvn spring-boot:run
 
 ---
 
-## ⚙️ Configuration
+##  Configuration
 
-Example `application.properties`:
+ `application.properties`:
 
 ```properties
-server.port=8080
 
 spring.datasource.url=jdbc:postgresql://aws-0-eu-west-3.pooler.supabase.com:6543/postgres?prepareThreshold=0
 spring.datasource.username=postgres.ddkhchvbbysgxbvdtobx
@@ -72,29 +71,18 @@ spring.datasource.password=WBOmpt5I5DdjUHZL
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-
-
 ```
 
 ---
 
-## 📚 API Documentation
-
-Swagger UI available at:
-```
-http://localhost:8080/swagger-ui/index.html
-```
-
----
-
-## 👥 Authors
+##  Authors
 
 - Hongxiang LIN
 - Liya XU
 
 ---
 
-## 📌 Notes
+##  Notes
 
 - Use Swagger to test endpoints quickly
 - All endpoints are versioned under `/v1`
